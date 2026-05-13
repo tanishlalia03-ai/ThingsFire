@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -57,4 +58,13 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    implementation("androidx.navigation:navigation-compose:2.8.0")
+
+    // 1. Import the Firebase BoM (Bill of Materials) - this manages versions for you
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    // 2. Add the library for Authentication (Login/Sign Up)
+    implementation("com.google.firebase:firebase-auth-ktx")
+    // 3. Add the library for Firestore (Storing data)
+    implementation("com.google.firebase:firebase-firestore-ktx")
 }
