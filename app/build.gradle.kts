@@ -67,4 +67,5 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     // 3. Add the library for Firestore (Storing data)
     implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-database-ktx")
 }
