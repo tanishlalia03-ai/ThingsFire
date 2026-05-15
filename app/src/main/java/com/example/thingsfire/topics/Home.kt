@@ -1,6 +1,7 @@
 package com.example.thingsfire.topics
 
 import android.widget.Toast
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -23,7 +24,10 @@ import com.google.firebase.database.ValueEventListener
 data class Channel(val name: String = "", val id: String = "")
 
 @Composable
-fun HomeScreen(onLogout: () -> Unit) {
+fun HomeScreen(
+    onLogout: () -> Unit,
+    onOpenChannel: (String) -> Unit
+) {
     val context = LocalContext.current
     val auth = FirebaseAuth.getInstance()
 
@@ -100,7 +104,10 @@ fun HomeScreen(onLogout: () -> Unit) {
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 4.dp),
+                            .padding(vertical = 4.dp)
+                            .clickable(enabled = channel.id.isNotBlank()) {
+                                onOpenChannel(channel.id)
+                            },
                     ) {
                         ListItem(
                             headlineContent = { Text(channel.name) },
@@ -110,7 +117,7 @@ fun HomeScreen(onLogout: () -> Unit) {
                 }
             }
 
-            Button(onClick = { auth.signOut(); onLogout() }) {
+            Button(onClick = onLogout) {
                 Text("Logout")
             }
         }

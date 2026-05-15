@@ -1,6 +1,6 @@
-package com.example.thingsfire.datamodels
+package com.example.thingsfire.DataModels
 
 data class WeatherStation(
-    val channel: Channel,
-    val feeds: List<Feed>
+    val channel: Channel = Channel(),
+    val feeds: List<FeedX> = emptyList()
 )

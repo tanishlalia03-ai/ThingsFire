@@ -1,8 +1,6 @@
-package com.example.thingsfire.datamodels
+package com.example.thingsfire.DataModels
 
 data class Feed(
-    val created_at: String,
-    val entry_id: Int,
-    val field1: String,
-    val field2: String
+    val channel: Channel = Channel(),
+    val feeds: List<FeedX> = emptyList()
 )

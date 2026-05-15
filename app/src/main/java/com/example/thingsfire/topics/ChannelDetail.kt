@@ -20,6 +20,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -37,12 +38,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.thingsfire.DataModels.Channel
+import com.example.thingsfire.R
 import com.example.thingsfire.DataModels.Feed
-import com.example.thingsfire.DataModels.FeedX
 import com.example.thingsfire.DataModels.labelForField
 import com.example.thingsfire.DataModels.valueForField
 import com.example.thingsfire.ViewModels.ChannelUiState
@@ -119,7 +120,11 @@ private fun ChannelScreenScaffold(
                 title = { Text(title) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Text(text = "Back")
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_back_button),
+                            contentDescription = "Back",
+                            tint = MaterialTheme.colorScheme.onSurface
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(

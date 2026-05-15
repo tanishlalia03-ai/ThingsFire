@@ -45,6 +45,8 @@ android {
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -60,6 +62,8 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     implementation("androidx.navigation:navigation-compose:2.8.0")
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
 
     // 1. Import the Firebase BoM (Bill of Materials) - this manages versions for you
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
